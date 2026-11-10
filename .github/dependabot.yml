@@ -4,6 +4,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # The ref after `@` picks the Rust version (`@1.95` is the minimum supported Rust), not a
+      # version of the action; Rust versions are bumped on purpose, with rust-toolchain.toml.
+      - dependency-name: dtolnay/rust-toolchain
   - package-ecosystem: cargo
     directory: /
     schedule:

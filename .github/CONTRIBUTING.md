@@ -155,9 +155,11 @@ These need a person, not a script:
   - the privacy statement in the README.
 
   Once accepted, add the signing step marked in `.github/workflows/release.yml`.
-- [ ] **Clean-machine test.** Test the zip on a clean Windows 10 and 11 install (Windows Sandbox
-      is enough). It needs no Visual C++ runtime: check that it starts, that SmartScreen behaves
-      as expected, and that a controller maps in Notepad.
+- [ ] **Clean-machine test.** `scripts\sandbox-test.ps1` downloads the latest release, checks it
+      against `SHA256SUMS.txt` and opens it in Windows Sandbox with a checklist on the desktop:
+      it must start without the Visual C++ runtime, save and open profiles, and show the expected
+      SmartScreen warning when downloaded through a browser. Sandboxes see no controllers, so
+      check that a controller maps in Notepad on a second PC.
 
 ### Each release
 
