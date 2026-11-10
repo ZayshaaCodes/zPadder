@@ -1,0 +1,39 @@
+;-------------------------
+; Xpadder Controller File
+;-------------------------
+
+Version=5.3
+
+[Button Locations]
+Button1Location=340,104
+Button2Location=372,136
+Button3Location=404,104
+Button4Location=372,72
+Button7Location=60,4
+Button14Location=241,60
+
+[Access]
+Stick1XAccess=Axis X
+Stick1YAccess=Axis Y
+Stick2XAccess=Axis Z
+Stick2YAccess=Axis RZ
+
+[Names]
+Button1Name=Carré
+Button2Name=Croix
+Button3Name=Cercle
+Button4Name=Triangle
+Button5Name=L1
+Button6Name=R1
+Button7Name=L2
+Button8Name=R2
+Button9Name=Share
+Button10Name=Options
+Button11Name=L3
+Button12Name=R3
+Button13Name=PS
+Button14Name=Pavé tactile
+DPadName=Croix directionnelle
+DPadUpName=Haut
+
+[Image]

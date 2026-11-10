@@ -1,0 +1,19 @@
+[package]
+name = "zpadder-model"
+description = "Core data model shared by every ZPadder crate (no OS dependencies)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+# JSON schemas for profile files, for editor validation and completion.
+schema = ["dep:schemars"]
+
+[dependencies]
+schemars = { workspace = true, optional = true }
+serde.workspace = true
+
+[lints]
+workspace = true

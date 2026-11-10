@@ -1,0 +1,15 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=2012.12.31
+
+[Profile Settings]
+
+[Set Settings]
+
+[Assignments];--- Xpadder Profile File ---
+DataType=Profile
+Version=2012.12.31
+[Set Settings]
+Set1Name=Glued
+[Assignments]
+Set1Button1Slots=Q

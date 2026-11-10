@@ -1,0 +1,4 @@
+[toolchain]
+# Pinned so CI and release builds don't change under us; bump it on purpose.
+channel = "1.99.1"
+components = ["rustfmt", "clippy"]

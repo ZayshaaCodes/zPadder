@@ -1,0 +1,60 @@
+#:schema ../../schema/profile.schema.json
+# Arrow keys and Z/X/A/S, the defaults of many keyboard-controlled indie and emulated games.
+
+format_version = 1
+name = "Platformer / arcade"
+
+[[layers]]
+name = "Main"
+
+[layers.buttons.south]
+slots = ["z"]
+
+[layers.buttons.east]
+slots = ["x"]
+
+[layers.buttons.west]
+slots = ["a"]
+
+[layers.buttons.north]
+slots = ["s"]
+
+[layers.buttons.left_shoulder]
+slots = ["q"]
+
+[layers.buttons.right_shoulder]
+slots = ["w"]
+
+[layers.buttons.start]
+slots = ["enter"]
+
+[layers.buttons.back]
+slots = ["escape"]
+
+[layers.buttons.dpad_up]
+slots = ["up"]
+
+[layers.buttons.dpad_down]
+slots = ["down"]
+
+[layers.buttons.dpad_left]
+slots = ["left"]
+
+[layers.buttons.dpad_right]
+slots = ["right"]
+
+[layers.left_trigger]
+slots = ["c"]
+
+[layers.right_trigger]
+slots = ["v"]
+
+[layers.left_stick]
+mode = "directions"
+dead_zone = 0.35
+
+[layers.left_stick.directions]
+up = { slots = ["up"] }
+down = { slots = ["down"] }
+left = { slots = ["left"] }
+right = { slots = ["right"] }

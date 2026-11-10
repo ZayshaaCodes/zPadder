@@ -1,0 +1,11 @@
+#:schema ../../schema/profile.schema.json
+# Games see an Xbox controller. Nothing is assigned, so every button, stick and trigger acts as
+# the Xbox controller's own. Assign a control in "Main" to make it press keys instead.
+# Needs the free ViGEmBus driver: https://github.com/nefarius/ViGEmBus/releases
+
+format_version = 1
+name = "Xbox controller (all games)"
+virtual_pad = "xbox360"
+
+[[layers]]
+name = "Main"

@@ -1,0 +1,73 @@
+#:schema ../../schema/profile.schema.json
+# Use Windows and the web from the sofa.
+
+format_version = 1
+name = "Desktop & browsing"
+
+[[layers]]
+name = "Main"
+
+[layers.buttons.south]
+name = "Click"
+slots = ["mouse_left"]
+
+[layers.buttons.east]
+name = "Right-click"
+slots = ["mouse_right"]
+
+[layers.buttons.west]
+name = "Middle-click"
+slots = ["mouse_middle"]
+
+[layers.buttons.north]
+name = "Start menu"
+slots = ["left_gui"]
+
+[layers.buttons.start]
+slots = ["enter"]
+
+[layers.buttons.back]
+slots = ["escape"]
+
+[layers.buttons.left_shoulder]
+name = "Back"
+slots = ["left_alt", "left"]
+
+[layers.buttons.right_shoulder]
+name = "Forward"
+slots = ["left_alt", "right"]
+
+[layers.buttons.dpad_up]
+slots = ["up"]
+
+[layers.buttons.dpad_down]
+slots = ["down"]
+
+[layers.buttons.dpad_left]
+slots = ["left"]
+
+[layers.buttons.dpad_right]
+slots = ["right"]
+
+[layers.buttons.right_stick]
+name = "Switch window"
+slots = ["left_alt", "tab"]
+
+# Hold the left trigger and scroll to zoom.
+[layers.left_trigger]
+name = "Zoom"
+slots = ["left_ctrl"]
+
+[layers.right_trigger]
+name = "Click"
+slots = ["mouse_left"]
+
+[layers.left_stick]
+mode = "mouse"
+dead_zone = 0.15
+mouse = { speed = 1100.0, curve = 1.6 }
+
+[layers.right_stick]
+mode = "scroll"
+dead_zone = 0.2
+scroll = { speed = 10.0, horizontal = true }

@@ -1,0 +1,31 @@
+[package]
+name = "zpadder-input"
+description = "Controller input backends for ZPadder (SDL3 by default)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+zpadder-model.workspace = true
+
+# SDL3 is built from source with CMake and linked statically, with every subsystem ZPadder does
+# not use switched off. Gamepad support needs joystick, hidapi (PlayStation/Switch drivers),
+# sensor (gyro), haptic and power (battery).
+[dependencies.sdl3-sys]
+version = "0.7.2"
+default-features = false
+features = [
+    "build-from-source-static",
+    "no-sdl-audio",
+    "no-sdl-gpu",
+    "no-sdl-render",
+    "no-sdl-camera",
+    "no-sdl-dialog",
+    "no-sdl-tray",
+    "no-sdl-video",
+]
+
+[lints]
+workspace = true

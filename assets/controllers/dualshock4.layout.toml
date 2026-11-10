@@ -1,0 +1,26 @@
+format_version = 1
+name = "DualShock 4 (PS4)"
+image = "dualshock4.png"
+size = [1000.0, 736.0]
+
+# Centres of each control on the picture. L2 and R2 are hidden behind L1 and R1 from the front,
+# so their markers sit in the space above them.
+[positions]
+north = [800.0, 207.0]
+east = [868.0, 280.0]
+south = [800.0, 350.0]
+west = [732.0, 280.0]
+dpad_up = [204.0, 232.0]
+dpad_down = [204.0, 323.0]
+dpad_left = [157.0, 278.0]
+dpad_right = [251.0, 278.0]
+left_stick = [342.0, 437.0]
+right_stick = [657.0, 437.0]
+guide = [500.0, 438.0]
+touchpad = [500.0, 222.0]
+back = [308.0, 175.0]
+start = [692.0, 175.0]
+left_shoulder = [222.0, 96.0]
+right_shoulder = [778.0, 96.0]
+left_trigger = [222.0, 38.0]
+right_trigger = [778.0, 38.0]

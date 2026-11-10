@@ -1,0 +1,61 @@
+name: Bug report
+description: Something doesn't work as it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: ZPadder version
+      description: Shown in the Help menu.
+      placeholder: "0.3.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2"
+    validations:
+      required: true
+  - type: input
+    id: controller
+    attributes:
+      label: Controller and connection
+      placeholder: "DualShock 4 over Bluetooth"
+    validations:
+      required: true
+  - type: dropdown
+    id: others
+    attributes:
+      label: Other controller software running
+      description: The Test bench and the status bar warn about these.
+      multiple: true
+      options:
+        - None
+        - Steam (Steam Input)
+        - DS4Windows
+        - reWASD
+        - DSX
+        - JoyToKey
+        - AntiMicroX
+        - Xpadder
+        - Other
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: >-
+        Help > Open log folder, then attach zpadder.log. For more detail, set the environment
+        variable ZPADDER_LOG=debug, start ZPadder, reproduce the problem and attach the log again.
+  - type: textarea
+    id: profile
+    attributes:
+      label: Profile
+      description: If the bug is about what a profile does, attach it (.toml or .xpadderprofile).

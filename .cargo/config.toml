@@ -1,0 +1,9 @@
+# Link the C runtime statically, so the portable zip runs on a clean Windows install without the
+# Visual C++ Redistributable (VCRUNTIME140.dll).
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
+
+# SDL is built from source with CMake, which chooses the C runtime itself; this toolchain file
+# makes it match. The cmake crate reads the target-specific variable.
+[env]
+CMAKE_TOOLCHAIN_FILE_x86_64_pc_windows_msvc = { value = ".cargo/msvc-static-crt.cmake", relative = true }

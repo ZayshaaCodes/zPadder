@@ -1,0 +1,52 @@
+name: Release
+
+# Pushing a tag such as v0.3.0 builds the release zip and opens a draft GitHub Release with it.
+# See the "Releasing" section of .github/CONTRIBUTING.md for the whole procedure.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: Build and package
+    runs-on: windows-latest
+    permissions:
+      contents: write # to create the draft release
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@1.99.1
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Check the tag matches the version
+        shell: pwsh
+        run: |
+          $version = ((cargo metadata --format-version 1 --no-deps --locked | ConvertFrom-Json).packages |
+            Where-Object { $_.name -eq 'zpadder' }).version
+          if ("v$version" -ne '${{ github.ref_name }}') {
+            throw "Tag ${{ github.ref_name }} does not match the version in Cargo.toml ($version)"
+          }
+
+      - name: Install cargo-about
+        run: cargo install cargo-about --locked --features cli
+
+      # Code signing goes here once ZPadder has a certificate (SignPath Foundation): build, sign
+      # target\package\release\zpadder.exe and zpadder-cli.exe, then package. Until then the
+      # release is unsigned, and the release notes must say so.
+      - name: Test, build and package
+        shell: pwsh
+        run: scripts\package.ps1
+
+      - name: Draft the GitHub release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $files = Get-ChildItem dist\*.zip, dist\SHA256SUMS.txt | ForEach-Object FullName
+          gh release create '${{ github.ref_name }}' $files --draft --verify-tag `
+            --title 'ZPadder ${{ github.ref_name }}' --notes-file CHANGELOG.md

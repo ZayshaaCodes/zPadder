@@ -1,0 +1,25 @@
+format_version = 1
+name = "Xbox One / Series"
+image = "xbox-one.png"
+size = [1000.0, 922.0]
+
+# Centres of each control on the picture. The bumpers and triggers are seen edge-on, so their
+# markers sit along the top edge.
+[positions]
+north = [640.0, 110.0]
+east = [722.0, 162.0]
+west = [610.0, 187.0]
+south = [697.0, 232.0]
+dpad_up = [383.0, 375.0]
+dpad_right = [455.0, 415.0]
+dpad_down = [420.0, 476.0]
+dpad_left = [348.0, 432.0]
+left_stick = [248.0, 300.0]
+right_stick = [643.0, 315.0]
+guide = [400.0, 140.0]
+back = [388.0, 262.0]
+start = [513.0, 220.0]
+left_shoulder = [165.0, 140.0]
+left_trigger = [45.0, 255.0]
+right_shoulder = [570.0, 36.0]
+right_trigger = [720.0, 26.0]

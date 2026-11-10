@@ -1,0 +1,20 @@
+[package]
+name = "zpadder-import-xpadder"
+description = "Importer for Xpadder .xpaddercontroller and .xpadderprofile files"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+# Encodes imported controller pictures (MIT OR Apache-2.0).
+png = "0.18"
+zpadder-model.workspace = true
+
+[dev-dependencies]
+# Writes TOML in the `xpadder-import` example (MIT OR Apache-2.0).
+toml = "1.2"
+
+[lints]
+workspace = true

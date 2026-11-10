@@ -1,0 +1,17 @@
+[package]
+name = "zpadder-output"
+description = "Keyboard and mouse output sinks for ZPadder (SendInput on Windows)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+zpadder-model.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows = { workspace = true, features = ["Win32_UI_Input_KeyboardAndMouse"] }
+
+[lints]
+workspace = true

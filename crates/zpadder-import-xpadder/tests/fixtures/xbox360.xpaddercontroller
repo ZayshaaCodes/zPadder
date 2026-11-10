@@ -1,0 +1,76 @@
+;--- Xpadder Controller File ---
+DataType=Controller
+Version=2020.05.01
+
+[Button Locations]
+Button1Location=376,136
+Button2Location=408,104
+Button3Location=344,104
+Button4Location=376,72
+Button5Location=60,20
+Button6Location=420,20
+Button7Location=200,100
+Button8Location=276,100
+Button9Location=100,100
+Button10Location=311,180
+DPadUpLocation=173,157
+DPadRightLocation=205,189
+DPadDownLocation=173,221
+DPadLeftLocation=141,189
+Stick1UpLocation=108,70
+Stick1RightLocation=140,102
+Stick1DownLocation=108,134
+Stick1LeftLocation=76,102
+Stick2UpLocation=311,148
+Stick2RightLocation=343,180
+Stick2DownLocation=311,212
+Stick2LeftLocation=279,180
+TriggerLeftLocation=4,4
+TriggerRightLocation=478,4
+
+[Access]
+DPadUpAccess=POV
+DPadRightAccess=POV
+DPadDownAccess=POV
+DPadLeftAccess=POV
+Stick1XAccess=Axis X
+Stick1YAccess=Axis Y
+Stick2XAccess=Axis RX
+Stick2YAccess=Axis RY
+TriggerLeftAccess=Axis Z
+TriggerRightAccess=Axis Z -
+
+[Names]
+Button1Name=A
+Button2Name=B
+Button3Name=X
+Button4Name=Y
+Button5Name=LB
+Button6Name=RB
+Button7Name=Back
+Button8Name=Start
+Button9Name=LS
+Button10Name=RS
+DPadName=DPad
+Stick1Name=Left Stick
+Stick2Name=Right Stick
+StickUpName=Up
+StickRightName=Right
+StickDownName=Down
+StickLeftName=Left
+TriggerLeftName=LT
+TriggerRightName=RT
+
+[Image]
+ImageLine100=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine101=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine102=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine103=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine104=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine105=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine106=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine107=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine108=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine109=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine110=1,1,FF00FF,100,808080,404040,1,FF00FF,FE
+ImageLine111=2,2,FF00FF,1FF,0

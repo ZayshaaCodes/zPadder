@@ -1,0 +1,15 @@
+    ;--- Xpadder Profile Data ---
+    Version=5.6
+    Name=Old Shooter
+    Set1Button1Name=Jump/Stand
+    Set1Button1Slots=Space
+    Set1Button2Slots=C,HOLD ZONE 0.50s,Left Control,PAUSE 0.01s
+    Set1Button5Rumble=1
+    Set1Button5Slots=4
+    Set1Stick1UpSlots=W
+    Set1Stick1DownSlots=S
+    Set1DPadUpSlots=Arrow Up
+    Set1DPadUpLeftSlots=Home
+    Set1DPadMode=EightWay
+    Set1TriggerRightSlots=Left Mouse Button (1)
+    Set1Button3Slots=Turbo Boost,F

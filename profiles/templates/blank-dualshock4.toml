@@ -1,0 +1,9 @@
+#:schema ../../schema/profile.schema.json
+# Nothing assigned yet, shown on the DualShock 4 photo whichever pad is connected.
+
+format_version = 1
+name = "Blank DualShock 4"
+layout = "builtin:dualshock4"
+
+[[layers]]
+name = "Main"

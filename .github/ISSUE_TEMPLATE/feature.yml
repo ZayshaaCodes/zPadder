@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest something ZPadder should do.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The game or task, and what gets in the way today.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help?
+  - type: textarea
+    id: xpadder
+    attributes:
+      label: How did Xpadder or other tools handle it?
+      description: Optional, but it helps when ZPadder should behave like something you know.

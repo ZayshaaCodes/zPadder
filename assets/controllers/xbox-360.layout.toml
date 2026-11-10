@@ -1,0 +1,25 @@
+format_version = 1
+name = "Xbox 360"
+image = "xbox-360.png"
+size = [1000.0, 774.0]
+
+# Centres of each control on the picture. The bumpers and triggers are hidden at this angle, so
+# their markers sit just off the top edge on each side.
+[positions]
+north = [851.0, 145.0]
+east = [902.0, 212.0]
+west = [764.0, 182.0]
+south = [814.0, 246.0]
+dpad_up = [393.0, 188.0]
+dpad_down = [408.0, 262.0]
+dpad_left = [350.0, 225.0]
+dpad_right = [450.0, 228.0]
+left_stick = [330.0, 85.0]
+right_stick = [655.0, 255.0]
+guide = [578.0, 155.0]
+back = [486.0, 140.0]
+start = [670.0, 172.0]
+left_shoulder = [225.0, 62.0]
+left_trigger = [140.0, 55.0]
+right_shoulder = [760.0, 88.0]
+right_trigger = [880.0, 80.0]

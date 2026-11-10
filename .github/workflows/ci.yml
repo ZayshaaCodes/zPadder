@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Weekly, so newly published advisories show up even when nothing changes here.
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  windows:
+    name: Windows (full workspace)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      # The exact toolchain comes from rust-toolchain.toml.
+      - uses: dtolnay/rust-toolchain@1.99.1
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all --check
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - run: cargo test --workspace --locked
+
+  # rust-version in Cargo.toml is a promise; check it.
+  msrv:
+    name: Windows (minimum Rust version)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@1.95
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo +1.95 check --workspace --all-targets --locked
+
+  # The core crates must never depend on OS-specific code. Building them on
+  # Linux keeps that honest until real Linux backends exist (Phase 6).
+  portable-core:
+    name: Linux (portable core)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@1.99.1
+      - uses: Swatinem/rust-cache@v2
+      - run: >-
+          cargo test --locked
+          -p zpadder-model
+          -p zpadder-engine
+          -p zpadder-config
+          -p zpadder-import-xpadder
+
+  deny:
+    name: Licences and advisories
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: EmbarkStudios/cargo-deny-action@v2

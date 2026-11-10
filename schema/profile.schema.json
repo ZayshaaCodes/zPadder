@@ -1,0 +1,634 @@
+{
+  "$defs": {
+    "Assignment": {
+      "additionalProperties": false,
+      "description": "What one control does: a list of slots plus modifiers.",
+      "properties": {
+        "layer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/LayerSelect"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Switches layers when the control is pressed."
+        },
+        "name": {
+          "description": "Optional label, e.g. \"Jump\".",
+          "type": "string"
+        },
+        "passthrough": {
+          "description": "When the profile acts as an Xbox controller (`virtual_pad`), the control also works as\nits Xbox counterpart (button or trigger) while doing the assignment. Without it, an\nassigned control does only the assignment.",
+          "type": "boolean"
+        },
+        "rumble": {
+          "description": "Vibrates the pad while the assignment is held.",
+          "type": "boolean"
+        },
+        "slots": {
+          "description": "What the control does, as a timeline. Plain outputs are pressed in order when the control\nis pressed and released in reverse when it is released, so several keys form a\ncombination such as Shift+X. Timing slots turn the list into sequences, tap-or-hold and\nso on; `docs/profiles.md` describes them.",
+          "items": {
+            "$ref": "#/$defs/Slot"
+          },
+          "type": "array"
+        },
+        "toggle": {
+          "description": "A press latches the outputs on; the next press releases them. Not combinable with\ntiming slots or a `while_held` layer switch (use `two_way` for a latching switch).",
+          "type": "boolean"
+        },
+        "turbo": {
+          "description": "Repeats the outputs while held, at this many presses per second (0.5–60).",
+          "format": "float",
+          "maximum": 60.0,
+          "minimum": 0.5,
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DirectionSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "diagonal_size": {
+          "default": 45.0,
+          "description": "Width of each diagonal sector in degrees (0–90).",
+          "format": "float",
+          "maximum": 90.0,
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "down": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "down_left": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "down_right": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "eight_way": {
+          "description": "Diagonals have their own assignments. Otherwise a diagonal presses both neighbouring\ndirections (up + right), like holding W and D.",
+          "type": "boolean"
+        },
+        "left": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "right": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "up": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "up_left": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "up_right": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Layer": {
+      "additionalProperties": false,
+      "description": "One complete set of assignments. Only one layer is active at a time.",
+      "properties": {
+        "buttons": {
+          "additionalProperties": false,
+          "properties": {
+            "back": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "dpad_down": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "dpad_left": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "dpad_right": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "dpad_up": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "east": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "guide": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "left_paddle1": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "left_paddle2": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "left_shoulder": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "left_stick": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "misc1": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "north": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "right_paddle1": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "right_paddle2": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "right_shoulder": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "right_stick": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "south": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "start": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "touchpad": {
+              "$ref": "#/$defs/Assignment"
+            },
+            "west": {
+              "$ref": "#/$defs/Assignment"
+            }
+          },
+          "type": "object"
+        },
+        "left_stick": {
+          "$ref": "#/$defs/Stick"
+        },
+        "left_trigger": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "right_stick": {
+          "$ref": "#/$defs/Stick"
+        },
+        "right_trigger": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Assignment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "trigger_threshold": {
+          "default": 0.2,
+          "description": "How far a trigger must be pulled (0.05 to below 1) before its assignment fires.",
+          "exclusiveMaximum": 1.0,
+          "format": "float",
+          "minimum": 0.05,
+          "type": "number"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "LayerSelect": {
+      "additionalProperties": false,
+      "description": "A layer switch attached to an assignment.",
+      "properties": {
+        "mode": {
+          "$ref": "#/$defs/SelectMode",
+          "default": "one_way"
+        },
+        "target": {
+          "description": "Name of the layer to switch to.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "type": "object"
+    },
+    "MouseSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "curve": {
+          "description": "Response curve exponent (0.2–5): 1 is linear; above 1 gives finer control near the\ncentre while keeping full speed at full tilt.",
+          "format": "float",
+          "maximum": 5.0,
+          "minimum": 0.2,
+          "type": "number"
+        },
+        "invert_x": {
+          "type": "boolean"
+        },
+        "invert_y": {
+          "type": "boolean"
+        },
+        "speed": {
+          "default": 1000.0,
+          "description": "Pointer speed at full deflection, in pixels per second (0–20000).",
+          "format": "float",
+          "maximum": 20000.0,
+          "minimum": 0.0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "ScrollSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "horizontal": {
+          "description": "Also scroll sideways when the stick moves left or right.",
+          "type": "boolean"
+        },
+        "invert": {
+          "type": "boolean"
+        },
+        "speed": {
+          "default": 8.0,
+          "description": "Wheel notches per second at full deflection (above 0, at most 100).",
+          "exclusiveMinimum": 0.0,
+          "format": "float",
+          "maximum": 100.0,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "SelectMode": {
+      "oneOf": [
+        {
+          "const": "one_way",
+          "description": "Switch and stay.",
+          "type": "string"
+        },
+        {
+          "const": "two_way",
+          "description": "Switch; the next press switches back.",
+          "type": "string"
+        },
+        {
+          "const": "while_held",
+          "description": "Switch only while the control is held.",
+          "type": "string"
+        }
+      ]
+    },
+    "Slot": {
+      "anyOf": [
+        {
+          "enum": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j",
+            "k",
+            "l",
+            "m",
+            "n",
+            "o",
+            "p",
+            "q",
+            "r",
+            "s",
+            "t",
+            "u",
+            "v",
+            "w",
+            "x",
+            "y",
+            "z",
+            "digit_1",
+            "digit_2",
+            "digit_3",
+            "digit_4",
+            "digit_5",
+            "digit_6",
+            "digit_7",
+            "digit_8",
+            "digit_9",
+            "digit_0",
+            "enter",
+            "escape",
+            "backspace",
+            "tab",
+            "space",
+            "minus",
+            "equal",
+            "left_bracket",
+            "right_bracket",
+            "backslash",
+            "non_us_hash",
+            "semicolon",
+            "quote",
+            "grave",
+            "comma",
+            "period",
+            "slash",
+            "caps_lock",
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8",
+            "f9",
+            "f10",
+            "f11",
+            "f12",
+            "print_screen",
+            "scroll_lock",
+            "pause",
+            "insert",
+            "home",
+            "page_up",
+            "delete",
+            "end",
+            "page_down",
+            "right",
+            "left",
+            "down",
+            "up",
+            "num_lock",
+            "numpad_divide",
+            "numpad_multiply",
+            "numpad_subtract",
+            "numpad_add",
+            "numpad_enter",
+            "numpad_1",
+            "numpad_2",
+            "numpad_3",
+            "numpad_4",
+            "numpad_5",
+            "numpad_6",
+            "numpad_7",
+            "numpad_8",
+            "numpad_9",
+            "numpad_0",
+            "numpad_decimal",
+            "non_us_backslash",
+            "application",
+            "numpad_equal",
+            "f13",
+            "f14",
+            "f15",
+            "f16",
+            "f17",
+            "f18",
+            "f19",
+            "f20",
+            "f21",
+            "f22",
+            "f23",
+            "f24",
+            "left_ctrl",
+            "left_shift",
+            "left_alt",
+            "left_gui",
+            "right_ctrl",
+            "right_shift",
+            "right_alt",
+            "right_gui",
+            "mouse_left",
+            "mouse_right",
+            "mouse_middle",
+            "mouse_x1",
+            "mouse_x2",
+            "wheel_up",
+            "wheel_down",
+            "wheel_left",
+            "wheel_right",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ]
+        },
+        {
+          "pattern": "^([pP][aA][uU][sS][eE]|[hH][oO][lL][dD]( [zZ][oO][nN][eE])?|[rR][eE][lL][eE][aA][sS][eE]( [zZ][oO][nN][eE])?|[tT][aA][pP][ _][tT][iI][mM][eE]) ([0-9]+[mM][0-9]*\\.?[0-9]+[sS]|[0-9]*\\.?[0-9]+([sS]|[mM][sS]))$",
+          "type": "string"
+        },
+        {
+          "pattern": "^[dD][iI][sS][tT][aA][nN][cC][eE]( [zZ][oO][nN][eE])? [0-9]*\\.?[0-9]+%?$",
+          "type": "string"
+        },
+        {
+          "pattern": "^([cC][yY][cC][lL][eE]( [sS][tT][oO][pP])?|0x[0-9a-fA-F]{1,4})$",
+          "type": "string"
+        }
+      ],
+      "description": "A key, mouse button or wheel output, or a timing slot (pause, hold, release, distance, tap_time, cycle). See docs/profiles.md."
+    },
+    "Stick": {
+      "additionalProperties": false,
+      "description": "Settings for one analog stick.",
+      "properties": {
+        "dead_zone": {
+          "default": 0.25,
+          "description": "Deflection (0 to below 1) below which the stick counts as centred. At least 0.05 in\n`directions` mode.",
+          "exclusiveMaximum": 1.0,
+          "format": "float",
+          "minimum": 0.0,
+          "type": "number"
+        },
+        "directions": {
+          "$ref": "#/$defs/DirectionSettings",
+          "description": "Used when `mode` is `directions`."
+        },
+        "mode": {
+          "$ref": "#/$defs/StickMode",
+          "default": "off"
+        },
+        "mouse": {
+          "$ref": "#/$defs/MouseSettings",
+          "description": "Used when `mode` is `mouse`."
+        },
+        "passthrough": {
+          "description": "When the profile acts as an Xbox controller (`virtual_pad`), the stick also moves the\nXbox controller's stick, whatever its mode. In `off` mode it always does.",
+          "type": "boolean"
+        },
+        "scroll": {
+          "$ref": "#/$defs/ScrollSettings",
+          "description": "Used when `mode` is `scroll`."
+        }
+      },
+      "type": "object"
+    },
+    "StickMode": {
+      "oneOf": [
+        {
+          "enum": [
+            "off"
+          ],
+          "type": "string"
+        },
+        {
+          "const": "mouse",
+          "description": "Moves the pointer (Xpadder's \"Normal\" mouse mode).",
+          "type": "string"
+        },
+        {
+          "const": "directions",
+          "description": "Acts as four or eight direction buttons.",
+          "type": "string"
+        },
+        {
+          "const": "scroll",
+          "description": "Scrolls like a mouse wheel: up/down scrolls vertically, left/right horizontally.",
+          "type": "string"
+        }
+      ]
+    },
+    "VirtualPad": {
+      "description": "A virtual controller a profile presents to games.",
+      "oneOf": [
+        {
+          "const": "xbox360",
+          "description": "A wired Xbox 360 controller, which every XInput game understands.",
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A ZPadder profile: what each controller input does, in switchable layers.",
+  "properties": {
+    "format_version": {
+      "description": "Version of the profile file format. Always 1.",
+      "format": "uint32",
+      "maximum": 1,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "layers": {
+      "description": "The first layer is active when the profile loads.",
+      "items": {
+        "$ref": "#/$defs/Layer"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "layout": {
+      "default": null,
+      "description": "Controller picture to show in the editor: a built-in photo (`builtin:dualshock4`,\n`builtin:xbox-one`, `builtin:xbox-360`, `builtin:switch-pro`) or a layout file\nrelative to this profile.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "default": "",
+      "description": "Display name of the profile.",
+      "type": "string"
+    },
+    "virtual_pad": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VirtualPad"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Also presents each controller to games as a virtual Xbox 360 controller (`xbox360`).\nControls with nothing assigned in the active layer act as its buttons, sticks and\ntriggers. Needs the free ViGEmBus driver; see docs/profiles.md."
+    }
+  },
+  "required": [
+    "format_version",
+    "layers"
+  ],
+  "title": "ZPadder profile",
+  "type": "object"
+}

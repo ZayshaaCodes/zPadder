@@ -1,0 +1,35 @@
+# Rust build output and packages
+/target/
+/dist/
+
+# Editor / OS noise
+.vs/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local, per-machine Claude Code settings
+.claude/settings.local.json
+
+# Phase 0 probe logs (they contain window titles)
+probe-*.log
+
+# Debug symbols and crash dumps
+*.pdb
+*.dmp
+.vscode/
+
+# An earlier DualShock 4 render, no longer used, whose licence was never confirmed. The current
+# picture's original (originals/dualshock4-v2.png) was made for ZPadder and is tracked.
+assets/controllers/originals/dualshock4.png
+
+# Personal profiles saved straight into profiles/ (examples and templates live in subfolders).
+/profiles/*.toml
+
+# Files a portable build writes when run from the repository root.
+/portable.txt
+/settings.toml
+/layouts/
+/zpadder*.log

@@ -1,0 +1,26 @@
+format_version = 1
+name = "Switch Pro Controller"
+image = "switch-pro.png"
+size = [1000.0, 817.0]
+
+# Centres of each control on the picture. Buttons use positional names: on Nintendo pads
+# south is B and east is A. L/ZL and R/ZR sit along the top edge.
+[positions]
+north = [822.0, 180.0]
+east = [880.0, 247.0]
+west = [735.0, 215.0]
+south = [791.0, 284.0]
+dpad_up = [390.0, 222.0]
+dpad_down = [370.0, 300.0]
+dpad_left = [330.0, 255.0]
+dpad_right = [432.0, 268.0]
+left_stick = [307.0, 140.0]
+right_stick = [647.0, 300.0]
+guide = [625.0, 200.0]
+misc1 = [496.0, 175.0]
+back = [470.0, 107.0]
+start = [693.0, 155.0]
+left_shoulder = [300.0, 45.0]
+left_trigger = [195.0, 75.0]
+right_shoulder = [760.0, 85.0]
+right_trigger = [900.0, 112.0]

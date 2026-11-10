@@ -1,0 +1,27 @@
+[package]
+name = "zpadder"
+description = "Map game controller input to keyboard and mouse"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+default-run = "zpadder"
+
+[dependencies]
+tracing.workspace = true
+tracing-subscriber = { workspace = true, features = ["env-filter"] }
+zpadder-config.workspace = true
+zpadder-gui.workspace = true
+zpadder-import-xpadder.workspace = true
+zpadder-model.workspace = true
+zpadder-platform.workspace = true
+zpadder-runtime.workspace = true
+
+[build-dependencies]
+embed-manifest.workspace = true
+winresource.workspace = true
+
+[lints]
+workspace = true

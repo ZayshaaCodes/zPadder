@@ -1,0 +1,20 @@
+# Normalise source text to LF in the repository.
+* text=auto eol=lf
+
+# Xpadder files are CRLF + Windows-1252. Keep test fixtures byte-exact so the
+# importer is exercised against what Xpadder actually writes.
+*.xpadderprofile    -text
+*.xpaddercontroller -text
+
+# Windows-only scripts keep CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary assets
+*.png binary
+*.bmp binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.zip binary

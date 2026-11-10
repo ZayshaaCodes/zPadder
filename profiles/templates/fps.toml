@@ -1,0 +1,87 @@
+#:schema ../../schema/profile.schema.json
+# A starting point for keyboard-and-mouse shooters. Adjust keys to match the game.
+
+format_version = 1
+name = "First-person shooter"
+
+[[layers]]
+name = "Main"
+
+[layers.buttons.south]
+name = "Jump"
+slots = ["space"]
+
+[layers.buttons.east]
+name = "Crouch"
+slots = ["left_ctrl"]
+
+[layers.buttons.west]
+name = "Reload"
+slots = ["r"]
+
+[layers.buttons.north]
+name = "Use"
+slots = ["e"]
+
+[layers.buttons.left_shoulder]
+name = "Grenade"
+slots = ["g"]
+
+[layers.buttons.right_shoulder]
+name = "Ability"
+slots = ["q"]
+
+[layers.buttons.left_stick]
+name = "Sprint"
+slots = ["left_shift"]
+
+[layers.buttons.right_stick]
+name = "Melee"
+slots = ["v"]
+
+[layers.buttons.dpad_up]
+name = "Weapon 1"
+slots = ["1"]
+
+[layers.buttons.dpad_right]
+name = "Weapon 2"
+slots = ["2"]
+
+[layers.buttons.dpad_down]
+name = "Weapon 3"
+slots = ["3"]
+
+[layers.buttons.dpad_left]
+name = "Weapon 4"
+slots = ["4"]
+
+[layers.buttons.start]
+name = "Menu"
+slots = ["escape"]
+
+[layers.buttons.back]
+name = "Scores"
+slots = ["tab"]
+
+[layers.left_trigger]
+name = "Aim"
+slots = ["mouse_right"]
+
+[layers.right_trigger]
+name = "Fire"
+slots = ["mouse_left"]
+
+[layers.left_stick]
+mode = "directions"
+dead_zone = 0.25
+
+[layers.left_stick.directions]
+up = { slots = ["w"] }
+down = { slots = ["s"] }
+left = { slots = ["a"] }
+right = { slots = ["d"] }
+
+[layers.right_stick]
+mode = "mouse"
+dead_zone = 0.12
+mouse = { speed = 1500.0, curve = 1.8 }

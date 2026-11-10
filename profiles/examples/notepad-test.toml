@@ -1,0 +1,105 @@
+#:schema ../../schema/profile.schema.json
+# A profile for trying ZPadder in Notepad with any controller.
+#
+#   Open it in the app (File > Open), or run it headless:
+#   cargo run -p zpadder --bin zpadder-cli -- run profiles/examples/notepad-test.toml
+#
+# Buttons use positional names: south = Cross / A, east = Circle / B,
+# west = Square / X, north = Triangle / Y.
+
+format_version = 1
+name = "Notepad test"
+
+[[layers]]
+name = "Main"
+
+[layers.buttons.south]
+slots = ["space"]
+
+[layers.buttons.east]
+slots = ["backspace"]
+
+# Hold to type x repeatedly, 8 times a second.
+[layers.buttons.west]
+slots = ["x"]
+turbo = 8.0
+
+# Press once to hold Shift (capitals), press again to let go.
+[layers.buttons.north]
+slots = ["left_shift"]
+toggle = true
+
+[layers.buttons.right_shoulder]
+slots = ["enter"]
+
+# Hold L1 / LB for the Numbers layer.
+[layers.buttons.left_shoulder]
+layer = { target = "Numbers", mode = "while_held" }
+
+[layers.buttons.dpad_up]
+slots = ["up"]
+
+[layers.buttons.dpad_down]
+slots = ["down"]
+
+[layers.buttons.dpad_left]
+slots = ["left"]
+
+[layers.buttons.dpad_right]
+slots = ["right"]
+
+# Clicking a stick scrolls; hold it to keep scrolling.
+[layers.buttons.left_stick]
+slots = ["wheel_up"]
+turbo = 10.0
+
+[layers.buttons.right_stick]
+slots = ["wheel_down"]
+turbo = 10.0
+
+[layers.left_trigger]
+slots = ["mouse_right"]
+
+[layers.right_trigger]
+slots = ["mouse_left"]
+
+# Left stick types w/a/s/d; diagonals press two letters at once.
+[layers.left_stick]
+mode = "directions"
+dead_zone = 0.3
+
+[layers.left_stick.directions]
+up = { slots = ["w"] }
+down = { slots = ["s"] }
+left = { slots = ["a"] }
+right = { slots = ["d"] }
+
+[layers.right_stick]
+mode = "mouse"
+dead_zone = 0.15
+mouse = { speed = 1200.0 }
+
+[[layers]]
+name = "Numbers"
+
+[layers.buttons.south]
+slots = ["1"]
+
+[layers.buttons.east]
+slots = ["2"]
+
+[layers.buttons.west]
+slots = ["3"]
+
+[layers.buttons.north]
+slots = ["4"]
+
+# Ctrl+Z: undo.
+[layers.buttons.right_shoulder]
+slots = ["left_ctrl", "z"]
+
+# Each layer is complete on its own, so the pointer stick is repeated here.
+[layers.right_stick]
+mode = "mouse"
+dead_zone = 0.15
+mouse = { speed = 1200.0 }

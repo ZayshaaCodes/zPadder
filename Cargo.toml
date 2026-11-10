@@ -1,0 +1,60 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "spikes/*"]
+# The Phase 0 spikes build only when asked for (`-p zpadder-probe`).
+default-members = ["crates/*"]
+
+[workspace.package]
+version = "0.3.0"
+authors = ["The ZPadder Contributors"]
+repository = "https://github.com/ZayshaaCodes/zPadder"
+homepage = "https://github.com/ZayshaaCodes/zPadder"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+zpadder-model = { path = "crates/zpadder-model" }
+zpadder-engine = { path = "crates/zpadder-engine" }
+zpadder-config = { path = "crates/zpadder-config" }
+zpadder-import-xpadder = { path = "crates/zpadder-import-xpadder" }
+zpadder-input = { path = "crates/zpadder-input" }
+zpadder-output = { path = "crates/zpadder-output" }
+zpadder-platform = { path = "crates/zpadder-platform" }
+zpadder-gui = { path = "crates/zpadder-gui" }
+zpadder-runtime = { path = "crates/zpadder-runtime" }
+
+embed-manifest = "1.5"
+proptest = "1.12"
+schemars = "1.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "1.2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", default-features = false, features = ["ansi", "fmt", "std"] }
+# Virtual Xbox 360 controllers through the ViGEmBus driver (Windows only). The notification
+# feature delivers rumble from games.
+vigem-client = { version = "0.1.4", features = ["unstable_xtarget_notification"] }
+windows = "0.62"
+winresource = "0.1"
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+missing_debug_implementations = "warn"
+unreachable_pub = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+# Build SDL optimised even in dev builds. At opt-level 0 the cmake crate builds C code in Debug,
+# which links the debug C runtime (MSVCRTD) and clashes with Rust's release runtime.
+[profile.dev.package.sdl3-sys]
+opt-level = 2
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+# Unwinding stays on: a panicking mapper thread must still release every held key.
+panic = "unwind"

@@ -1,0 +1,67 @@
+;--- Xpadder Profile File ---
+DataType=Profile
+Version=2012.12.31
+Name=Synthetic Shooter
+
+[Profile Settings]
+KeyTapTime=10
+
+[Set Settings]
+Set1Name=On foot
+Set1StickDeadZones=64,39
+Set1TriggerDeadZones=28,28
+Set1StickDiagonalSizes=45,45
+Set1Stick1Mode=FourWay
+Set2Name=Menus
+Set2Stick1Mode=EightWay
+
+[Assignments]
+Set1Button1Name=Jump
+Set1Button1Slots=Space
+Set1Button2Name=Crouch / prone
+Set1Button2Slots=RELEASE ZONE 0.01s,C,RELEASE ZONE 0.30s,HOLD ZONE 0.30s,Left Control
+Set1Button3Slots=R
+Set1Button4Name=Next weapon
+Set1Button4Slots=1,CYCLE STOP,2,CYCLE STOP,3
+Set1Button5Slots=G
+Set1Button5Turbo=1
+Set1Button5TurboRate=20
+Set1Button6Slots=Left Shift
+Set1Button6Toggle=1
+Set1Button7Slots=Escape
+Set1Button8Slots=Tab
+Set1Button9Slots=Left Shift,W
+Set1Button10Slots=V,PAUSE 0.15s,Semi-Colon
+Set1DPadUpSlots=Alt,F4
+Set1DPadDownSlots=Mouse Wheel Down
+Set1DPadDownTurbo=1
+Set1DPadLeftSlots=NumPad Enter
+Set1DPadRightSlots=Back-Tick
+Set1Stick1UpSlots=W
+Set1Stick1DownSlots=S
+Set1Stick1LeftSlots=A
+Set1Stick1RightSlots=D
+Set1Stick2UpSlots=Mouse Move Up
+Set1Stick2UpMouseSpeed=48
+Set1Stick2DownSlots=Mouse Move Down
+Set1Stick2DownMouseSpeed=48
+Set1Stick2LeftSlots=Mouse Move Left
+Set1Stick2LeftMouseSpeed=48
+Set1Stick2RightSlots=Mouse Move Right
+Set1Stick2RightMouseSpeed=48
+Set1TriggerLeftName=Aim / menus
+Set1TriggerLeftSlots=Right Mouse Button (2)
+Set1TriggerLeftSetSelect=1
+Set1TriggerRightSlots=Left Mouse Button (1),DISTANCE ZONE 90%,Left Mouse Button (1),F
+Set1TriggerRightRumble=1
+Set1TriggerRightRumbleStrengths=255,255
+Set2Button1Slots=Enter
+Set2Button2Slots=Backspace
+Set2Button8SetSelect=0
+Set2Button8Toggle=1
+Set2Stick1UpSlots=Arrow Up
+Set2Stick1DownSlots=Arrow Down
+Set2Stick1LeftSlots=Arrow Left
+Set2Stick1RightSlots=Arrow Right
+Set2Stick1UpRightSlots=Page Up
+Set2TriggerLeftSetSelect=0
