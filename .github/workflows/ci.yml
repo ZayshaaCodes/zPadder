@@ -24,7 +24,7 @@ jobs:
     name: Windows (full workspace)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       # The exact toolchain comes from rust-toolchain.toml.
       - uses: dtolnay/rust-toolchain@1.99.1
         with:
@@ -39,7 +39,7 @@ jobs:
     name: Windows (minimum Rust version)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@1.95
       - uses: Swatinem/rust-cache@v2
       - run: cargo +1.95 check --workspace --all-targets --locked
@@ -50,7 +50,7 @@ jobs:
     name: Linux (portable core)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@1.99.1
       - uses: Swatinem/rust-cache@v2
       - run: >-
@@ -64,5 +64,5 @@ jobs:
     name: Licences and advisories
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: EmbarkStudios/cargo-deny-action@v2
