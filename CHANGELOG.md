@@ -6,7 +6,7 @@ All notable changes to ZPadder are listed here. The format follows
 
 ## [Unreleased]
 
-## [0.3.0]
+## [0.3.0] - 2026-11-10
 
 The first public release: a usable replacement for Xpadder on Windows. Builds are not yet code
 signed, so Windows SmartScreen may warn before the first start.
