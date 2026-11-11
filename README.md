@@ -4,8 +4,7 @@
 [![Licence: MIT OR Apache-2.0](https://img.shields.io/badge/licence-MIT%20OR%20Apache--2.0-blue)](#licence)
 [![Latest release](https://img.shields.io/github/v/release/ZayshaaCodes/zPadder?include_prereleases)](https://github.com/ZayshaaCodes/zPadder/releases)
 
-ZPadder lets you play PC games with a controller: your buttons and sticks press keys and move the
-mouse, and games can see an Xbox controller. It's a free, open-source replacement for
+ZPadder lets you map controler inputs to mouse and keyboard. It's a free, open-source replacement for
 [Xpadder](https://xpadder.com/) on Windows, and it opens your Xpadder profiles.
 
 ## Download and get going
