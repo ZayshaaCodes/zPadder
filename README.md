@@ -8,6 +8,8 @@ ZPadder lets you play PC games with a controller: your buttons and sticks press 
 mouse, and games can see an Xbox controller. It's a free, open-source replacement for
 [Xpadder](https://xpadder.com/) on Windows, and it opens your Xpadder profiles.
 
+![ZPadder's main window: a controller picture with each button's mapping on it, the key picker open, and the right stick's settings on the right](docs/images/zpadder.png)
+
 ## Download and get going
 
 1. Download the zip from the [latest release](https://github.com/ZayshaaCodes/zPadder/releases/latest),
